@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 
 const app = express();
-const path  = require("path");
+
 
 const PORT = process.env.PORT || 8080;
 
@@ -21,7 +21,7 @@ app.get("/notes", function(req, res) {
 });
 
 app.get("/api/notes", function(req, res) {
-    return res.sendFile(path.join(__dirname, "public", "./db/db.json"));
+    return res.sendFile(path.join(__dirname, "./db/db.json"));
 });
 
 // Listener
@@ -31,7 +31,7 @@ app.listen(PORT, function () {
 
 app.post("/api/notes", function(req, res) {
     try {
-        let notesData = fs.readFileSync("./db/db.json", "utf8");
+        notesData = fs.readFileSync("./db/db.json", "utf8");
         console.log(notesData);
         notesData = JSON.parse(notesData);
         req.body.id = notesData.length;
@@ -46,15 +46,21 @@ app.post("/api/notes", function(req, res) {
         console.log("Darn monkeys they left a mess of things");
         console.log(error);
     }
-})
+});
 
 app.delete("/api/notes/:id", function(req, res) {
     try {
         notesData = fs.readFileSync("./db/db.json", "utf8");
         notesData = JSON.parse(notesData);
-        notesData = (notesData).filter(function)
+        notesData = (notesData).filter(function (note) {
+            return note.id != req.params.id
+        });
+        notesData = JSON.stringify(notesData);
+        fs.writeFile("./db/db.json", notesData, "utf8", function (error) {
+            if (error) throw error;
+        });
     } catch (error) {
-        
+        console.log("Darn monkeys they left a mess of things");
+        console.log(error);
     }
-
-})
+});
