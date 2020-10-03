@@ -1,13 +1,13 @@
 const path = require("path");
 
-const index = path.join(__dirname, "public", "index.html");
-const notes = path.join(__dirname, "public", "notes.html");
+const index = path.join(__dirname, "../public/index.html");
+const notes = path.join(__dirname, "../public/notes.html");
 
 // HTML Routing
 
 module.exports = function (app) {
   // Goes to main page
-  app.get("/" || "*", function (req, res) {
+  app.get("/", function (req, res) {
     res.sendFile(index);
   });
 
@@ -17,7 +17,7 @@ module.exports = function (app) {
   });
 
   // Default to main page, if no matching routes
-//   app.get("*", function (req, res) {
-//     res.sendFile(index);
-//   });
+    app.get("*", function (req, res) {
+      res.sendFile(index);
+    });
 };
