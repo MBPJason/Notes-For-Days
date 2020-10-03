@@ -8,7 +8,7 @@ A simple note taking website. Add and delete notes at your command.
 
 ## Table of Contents
   
-* [Installation](#installation)
+* [Installation](#preview)
 * [Usage](#uasge)
 * [License](#license)
 * [Contributing](#contributing)
