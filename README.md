@@ -5,11 +5,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A simple note taking website. Add and delete notes at your command.
+Access the website [here](https://notes-for-days.herokuapp.com/)
 
 ## Table of Contents
   
-* [Installation](#preview)
-* [Usage](#uasge)
+* [Preview](#preview)
+* [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
 * [Tests](#tests)
